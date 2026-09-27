@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+        content="이영성 - 스포츠 생체역학, 운동역학, 스포츠 데이터 및 AI 기반 동작분석 연구·교육 포트폴리오">
+
+  <title>이영성 | Sports Biomechanics Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --surface: #ffffff;
+      --text: #172033;
+      --muted: #637083;
+      --line: #e5eaf0;
+      --accent: #174ea6;
+      --accent-soft: #eaf2ff;
+      --dark: #0c1b33;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Noto Sans KR", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* =========================
+       한글 / 영어 표시 설정
+    ========================= */
+
+    .en {
+      display: none;
+    }
+
+    body.lang-en .ko {
+      display: none;
+    }
+
+    body.lang-en .en {
+      display: inline;
+    }
+
+    body.lang-en div.en,
+    body.lang-en p.en,
+    body.lang-en ul.en {
+      display: block;
+    }
+
+    /* =========================
+       상단 메뉴
+    ========================= */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: auto;
+      padding: 14px 22px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .lang-btn {
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .lang-btn:hover {
+      background: var(--accent-soft);
+    }
+
+    /* =========================
+       메인 프로필 영역
+    ========================= */
+
+    header {
+      background: linear-gradient(135deg, #0c1b33, #174ea6);
+      color: white;
+    }
+
+    .hero {
+      max-width: var(--max);
+      margin: auto;
+      padding: 88px 22px 78px;
+
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .profile {
+      width: 150px;
+      height: 150px;
+
+      border-radius: 50%;
+
+      display: grid;
+      place-items: center;
+
+      border: 4px solid rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.12);
+
+      font-size: 48px;
+      font-weight: 800;
+    }
+
+    .eyebrow {
+      color: #bcd3ff;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 6vw, 64px);
+      margin: 0 0 8px;
+      line-height: 1.1;
+    }
+
+    .hero h2 {
+      margin: 0 0 18px;
+      font-size: clamp(18px, 2.4vw, 25px);
+      font-weight: 500;
+      color: #e6efff;
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: 0;
+      color: #d8e4f7;
+    }
+
+    /* =========================
+       본문
+    ========================= */
+
+    main {
+      max-width: var(--max);
+      margin: auto;
+      padding: 30px 22px 80px;
+    }
+
+    section {
+      padding: 48px 0 18px;
+      scroll-margin-top: 70px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      margin: 0 0 22px;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 52px;
+      height: 4px;
+      margin-top: 8px;
+      border-radius: 4px;
+      background: var(--accent);
+    }
+
+    .lead {
+      font-size: 18px;
+      color: #36445a;
+      max-width: 900px;
+    }
+
+    /* =========================
+       카드
+    ========================= */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px;
+
+      box-shadow: 0 8px 28px rgba(20, 40, 80, 0.05);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 19px;
+    }
+
+    .card p {
+      margin: 6px 0;
+      color: var(--muted);
+    }
+
+    /* =========================
+       경력 타임라인
+    ========================= */
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      background: white;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 14px 14px 0;
+      padding: 18px 22px;
+
+      box-shadow: 0 6px 20px rgba(20, 40, 80, 0.04);
+    }
+
+    .timeline-item strong {
+      display: block;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================
+       기술 / 역량 태그
+    ========================= */
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      background: var(--accent-soft);
+      color: var(--accent);
+
+      border-radius: 999px;
+
+      padding: 8px 13px;
+
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    /* =========================
+       연락처
+    ========================= */
+
+    .contact {
+      background: var(--dark);
+      color: white;
+
+      border-radius: 20px;
+      padding: 32px;
+    }
+
+    .contact p {
+      color: #cdd9eb;
+    }
+
+    .contact a {
+      color: white;
+      font-weight: 700;
+    }
+
+    /* =========================
+       Footer
+    ========================= */
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+
+      padding: 30px 20px 45px;
+
+      font-size: 14px;
+    }
+
+    /* =========================
+       모바일
+    ========================= */
+
+    @media (max-width: 760px) {
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 58px;
+      }
+
+      .profile {
+        margin: auto;
+      }
+
+      .hero p {
+        margin: auto;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 10px 14px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- =========================
+       상단 메뉴
+  ========================== -->
+
+  <nav>
+    <div class="nav-inner">
+
+      <div class="brand">
+        Lee Yeong Seong
+      </div>
+
+      <div class="nav-links">
+
+        <a href="#about">
+          <span class="ko">소개</span>
+          <span class="en">About</span>
+        </a>
+
+        <a href="#education">
+          <span class="ko">학력·경력</span>
+          <span class="en">Education & Career</span>
+        </a>
+
+        <a href="#activities">
+          <span class="ko">주요 활동</span>
+          <span class="en">Activities</span>
+        </a>
+
+        <a href="#skills">
+          <span class="ko">역량</span>
+          <span class="en">Skills</span>
+        </a>
+
+        <a href="#certifications">
+          <span class="ko">자격</span>
+          <span class="en">Certifications</span>
+        </a>
+
+        <a href="#contact">
+          <span class="ko">연락처</span>
+          <span class="en">Contact</span>
+        </a>
+
+        <button
+          class="lang-btn"
+          id="langToggle"
+          type="button">
+          EN
+        </button>
+
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- =========================
+       메인 프로필
+  ========================== -->
+
+  <header>
+
+    <div class="hero">
+
+      <div
+        class="profile"
+        aria-label="프로필 사진 자리">
+        LYS
+      </div>
+
+      <div>
+
+        <div class="eyebrow">
+          SPORTS BIOMECHANICS · DATA · AI
+        </div>
+
+        <h1>
+          <span class="ko">이영성</span>
+          <span class="en">Lee Yeong Seong</span>
+        </h1>
+
+        <h2>
+          Sports Biomechanics Researcher & Educator
+        </h2>
+
+        <p class="ko">
+          스포츠 생체역학을 기반으로 인간의 움직임을 분석하고,
+          스포츠 데이터와 AI 기술의 교육·연구 적용을 수행하는
+          연구자이자 교육자입니다.
+        </p>
+
+        <p class="en">
+          A researcher and educator specializing in sports biomechanics,
+          human movement analysis, sports data, and the application of
+          AI technologies to research and education.
+        </p>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <!-- =========================
+         자기소개
+    ========================== -->
+
+    <section id="about">
+
+      <h2 class="section-title">
+        <span class="ko">소개</span>
+        <span class="en">About Me</span>
+      </h2>
+
+      <p class="lead ko">
+        스포츠 생체역학과 운동역학을 기반으로 인간의 움직임과
+        달리기 시 충격 특성을 연구해 왔습니다.
+        대학에서는 운동역학, 데이터 분석, 프로그래밍 및
+        AI 활용 관련 교육을 수행하고 있으며,
+        스포츠 현장에서 활용할 수 있는 동작분석 및
+        데이터 기반 기술 개발에도 참여하고 있습니다.
+      </p>
+
+      <p class="lead en">
+        My research focuses on human movement and impact characteristics
+        during running from the perspectives of sports biomechanics and
+        kinesiology. I also teach biomechanics, data analysis,
+        programming, and AI applications at the university level,
+        while participating in the development of movement-analysis
+        and data-driven technologies for sports practice.
+      </p>
+
+
+      <div class="tags">
+
+        <span class="tag">
+          <span class="ko">스포츠 생체역학</span>
+          <span class="en">Sports Biomechanics</span>
+        </span>
+
+        <span class="tag">
+          <span class="ko">운동역학</span>
+          <span class="en">Biomechanics</span>
+        </span>
+
+        <span class="tag">
+          <span class="ko">인간 움직임 분석</span>
+          <span class="en">Human Movement Analysis</span>
+        </span>
+
+        <span class="tag">
+          <span class="ko">달리기·충격 분석</span>
+          <span class="en">Running & Impact Analysis</span>
+        </span>
+
+        <span class="tag">
+          <span class="ko">스포츠 데이터</span>
+          <span class="en">Sports Data</span>
+        </span>
+
+        <span class="tag">
+          <span class="ko">AI 동작분석</span>
+          <span class="en">AI-based Motion Analysis</span>
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         학력 및 경력
+    ========================== -->
+
+    <section id="education">
+
+      <h2 class="section-title">
+        <span class="ko">학력 및 경력</span>
+        <span class="en">Education & Career</span>
+      </h2>
+
+
+      <div class="grid">
+
+        <!-- 학력 -->
+
+        <div class="card">
+
+          <h3>
+            <span class="ko">학력</span>
+            <span class="en">Education</span>
+          </h3>
+
+          <div class="ko">
+
+            <p>
+              <strong>한국체육대학교</strong>
+              · 이학박사, 운동역학
+            </p>
+
+            <p>
+              <strong>한국체육대학교</strong>
+              · 체육학석사, 운동역학
+            </p>
+
+            <p>
+              <strong>충북대학교</strong>
+              · 이학사, 천문우주학과
+            </p>
+
+          </div>
+
+
+          <div class="en">
+
+            <p>
+              <strong>Korea National Sport University</strong>
+              · Ph.D., Biomechanics
+            </p>
+
+            <p>
+              <strong>Korea National Sport University</strong>
+              · M.S., Biomechanics
+            </p>
+
+            <p>
+              <strong>Chungbuk National University</strong>
+              · B.S., Astronomy and Space Science
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- 강의 -->
+
+        <div class="card">
+
+          <h3>
+            <span class="ko">주요 강의 분야</span>
+            <span class="en">Teaching Areas</span>
+          </h3>
+
+          <div class="ko">
+
+            <p>
+              운동역학 · Python 데이터 분석 · 프로그래밍
+            </p>
+
+            <p>
+              컴퓨팅 사고 · AI 응용행동분석
+            </p>
+
+            <p>
+              스포츠지도사 운동역학 교육
+            </p>
+
+          </div>
+
+
+          <div class="en">
+
+            <p>
+              Biomechanics · Python Data Analysis · Programming
+            </p>
+
+            <p>
+              Computational Thinking · AI-based Behavioral Analysis
+            </p>
+
+            <p>
+              Biomechanics for Sports Instructor Education
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- 주요 경력 -->
+
+      <h3 style="margin-top:30px;">
+
+        <span class="ko">
+          주요 경력
+        </span>
+
+        <span class="en">
+          Professional Experience
+        </span>
+
+      </h3>
+
+
+      <div class="timeline ko">
+
+        <div class="timeline-item">
+          <strong>
+            서경대학교 · 특임교수 / 연구교수
+          </strong>
+
+          <span class="meta">
+            2024.03 ~ 현재
+          </span>
+        </div>
+
+
+        <div class="timeline-item">
+          <strong>
+            성결대학교 · 강사
+          </strong>
+
+          <span class="meta">
+            2023.03 ~ 2025.02
+          </span>
+        </div>
+
+
+        <div class="timeline-item">
+          <strong>
+            한국체육대학교 · 강사
+          </strong>
+
+          <span class="meta">
+            2022.08 ~ 2024.08
+          </span>
+        </div>
+
+
+        <div class="timeline-item">
+          <strong>
+            중앙대학교 · 강사
+          </strong>
+
+          <span class="meta">
+            2023.08 ~ 2023.12
+          </span>
+        </div>
+
+
+        <div class="timeline-item">
+          <strong>
+            한국체육대학교 · 보조연구원
+          </strong>
+
+          <span class="meta">
+            2018.03 ~ 2024.09
+          </span>
+        </div>
+
+
+        <div class="timeline-item">
+          <strong>
+            대한스포츠아카데미협회 · 사원
+          </strong>
+
+          <span class="meta">
+            2015.08 ~ 2017.04
+          </span>
+        </div>
+
+
+        <div class="timeline-item">
+          <strong>
+            서울세계시각장애인경기대회 조직위원회
+            · 기획운영본부 문화홍보팀
+          </strong>
+
+          <span class="meta">
+            2015.03 ~ 2015.05
+          </span>
+        </div>
+
+      </div>
+
+
+      <!-- 영문 경력 -->
+
+      <div class="timeline en">
+
+        <div class="timeline-item">
+          <strong>
+            Seokyeong University
+            · Special Appointment Professor / Research Professor
+          </strong>
+
+          <span class="meta">
+            Mar 2024 – Present
+          </span>
+        </div>
+
+
+        <div class="timeline-item">
+          <strong>
+            Sungkyul University · Lecturer
+          </strong>
+
+          <span class="meta">
+            Mar 2023 – Feb 2025
+          </span>
+        </div>
+
+
+        <div class="timeline-item">
+          <strong>
+            Korea National Sport University · Lecturer
+          </strong>
+
+          <span class="meta">
+            Aug 2022 – Aug 2024
+          </span>
+        </div>
+
+
+        <div class="timeline-item">
+          <strong>
+            Chung-Ang University · Lecturer
+          </strong>
+
+          <span class="meta">
+            Aug 2023 – Dec 2023
+          </span>
+        </div>
+
+
+        <div class="timeline-item">
+          <strong>
+            Korea National Sport University · Research Assistant
+          </strong>
+
+          <span class="meta">
+            Mar 2018 – Sep 2024
+          </span>
+        </div>
+
+
+        <div class="timeline-item">
+          <strong>
+            Korea Sports Academy Association · Staff
+          </strong>
+
+          <span class="meta">
+            Aug 2015 – Apr 2017
+          </span>
+        </div>
+
+
+        <div class="timeline-item">
+          <strong>
+            Seoul 2015 IBSA World Games Organizing Committee
+            · Planning & Operations / Culture & PR
+          </strong>
+
+          <span class="meta">
+            Mar 2015 – May 2015
+          </span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         연구 및 활동
+    ========================== -->
+
+    <section id="activities">
+
+      <h2 class="section-title">
+
+        <span class="ko">
+          연구 및 주요 활동
+        </span>
+
+        <span class="en">
+          Research & Activities
+        </span>
+
+      </h2>
+
+
+      <!-- 한글 -->
+
+      <div class="grid ko">
+
+        <div class="card">
+
+          <h3>
+            스포츠 생체역학 연구
+          </h3>
+
+          <ul>
+            <li>
+              달리기 시 인체 충격 및 충격 흡수 특성 연구
+            </li>
+
+            <li>
+              달리기 속도와 생체역학적 변인의 관계 분석
+            </li>
+
+            <li>
+              착지 유형에 따른 전신 충격 분석
+            </li>
+
+            <li>
+              가속도 센서를 활용한 달리기 충격 분석
+            </li>
+
+            <li>
+              신발 및 인솔의 생체역학적 기능 평가
+            </li>
+          </ul>
+
+        </div>
+
+
+        <div class="card">
+
+          <h3>
+            정부·산업체 연구과제
+          </h3>
+
+          <ul>
+            <li>
+              한국연구재단 연구과제 참여
+            </li>
+
+            <li>
+              맞춤식 인솔 개발 연구
+            </li>
+
+            <li>
+              카본 러닝화 사용성 평가
+            </li>
+
+            <li>
+              신발 기능 검증을 위한 생체역학 연구
+            </li>
+
+            <li>
+              AI 기반 엘리트선수 동작분석·코칭 플랫폼 연구
+            </li>
+
+            <li>
+              Running Dynamics 인식 알고리즘 및 평가 지표 개발
+            </li>
+          </ul>
+
+        </div>
+
+
+        <div class="card">
+
+          <h3>
+            스포츠 동작분석 프로그램 개발
+          </h3>
+
+          <p>
+            한국스포츠과학원
+            「차세대 국가대표 선수를 위한 자동추적 기반
+            동작분석 자동화 시스템 개발」에
+            프로그램 개발·코딩으로 참여했습니다.
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <h3>
+            학술활동
+          </h3>
+
+          <ul>
+
+            <li>
+              International Society of Biomechanics 2023
+              · 포스터 발표
+            </li>
+
+            <li>
+              Footwear Biomechanics Symposium 2023 in Osaka
+              · 구두 발표
+            </li>
+
+            <li>
+              한국운동역학회 학술대회 및 세미나
+              · 구두 발표
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <!-- English -->
+
+      <div class="grid en">
+
+        <div class="card">
+
+          <h3>
+            Sports Biomechanics Research
+          </h3>
+
+          <ul>
+
+            <li>
+              Human impact and shock attenuation during running
+            </li>
+
+            <li>
+              Relationships between running speed
+              and biomechanical variables
+            </li>
+
+            <li>
+              Whole-body impact according to foot-strike patterns
+            </li>
+
+            <li>
+              Running impact analysis using accelerometers
+            </li>
+
+            <li>
+              Biomechanical evaluation of footwear and insoles
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="card">
+
+          <h3>
+            Government & Industry Projects
+          </h3>
+
+          <ul>
+
+            <li>
+              National Research Foundation of Korea projects
+            </li>
+
+            <li>
+              Customized insole development
+            </li>
+
+            <li>
+              Carbon running-shoe usability evaluation
+            </li>
+
+            <li>
+              Biomechanical validation of footwear function
+            </li>
+
+            <li>
+              AI-based elite athlete motion-analysis
+              and coaching platform research
+            </li>
+
+            <li>
+              Running Dynamics recognition algorithms
+              and evaluation metrics
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="card">
+
+          <h3>
+            Sports Motion Analysis Software Development
+          </h3>
+
+          <p>
+            Participated in software development and coding
+            for the Korea Institute of Sport Science project
+            on an automated tracking-based motion analysis system
+            for next-generation national athletes.
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <h3>
+            Academic Activities
+          </h3>
+
+          <ul>
+
+            <li>
+              International Society of Biomechanics 2023
+              · Poster presentation
+            </li>
+
+            <li>
+              Footwear Biomechanics Symposium 2023 in Osaka
+              · Oral presentation
+            </li>
+
+            <li>
+              Korean Society of Sport Biomechanics
+              conferences and seminars
+              · Oral presentations
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         역량
+    ========================== -->
+
+    <section id="skills">
+
+      <h2 class="section-title">
+
+        <span class="ko">
+          역량
+        </span>
+
+        <span class="en">
+          Skills
+        </span>
+
+      </h2>
+
+
+      <div class="tags ko">
+
+        <span class="tag">
+          스포츠 생체역학 분석
+        </span>
+
+        <span class="tag">
+          운동역학 분석
+        </span>
+
+        <span class="tag">
+          스포츠 동작분석
+        </span>
+
+        <span class="tag">
+          Visual3D
+        </span>
+
+        <span class="tag">
+          스포츠 영상분석
+        </span>
+
+        <span class="tag">
+          Python 데이터 분석
+        </span>
+
+        <span class="tag">
+          프로그래밍
+        </span>
+
+        <span class="tag">
+          AI 활용
+        </span>
+
+        <span class="tag">
+          동작분석 프로그램 개발
+        </span>
+
+        <span class="tag">
+          대학 교육
+        </span>
+
+      </div>
+
+
+      <div class="tags en">
+
+        <span class="tag">
+          Sports Biomechanics
+        </span>
+
+        <span class="tag">
+          Biomechanical Analysis
+        </span>
+
+        <span class="tag">
+          Motion Analysis
+        </span>
+
+        <span class="tag">
+          Visual3D
+        </span>
+
+        <span class="tag">
+          Sports Video Analysis
+        </span>
+
+        <span class="tag">
+          Python Data Analysis
+        </span>
+
+        <span class="tag">
+          Programming
+        </span>
+
+        <span class="tag">
+          AI Applications
+        </span>
+
+        <span class="tag">
+          Motion-analysis Software Development
+        </span>
+
+        <span class="tag">
+          University Teaching
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         자격
+    ========================== -->
+
+    <section id="certifications">
+
+      <h2 class="section-title">
+
+        <span class="ko">
+          자격
+        </span>
+
+        <span class="en">
+          Certifications
+        </span>
+
+      </h2>
+
+
+      <!-- 한글 -->
+
+      <div class="grid ko">
+
+        <div class="card">
+          <h3>
+            노인체육지도사 보디빌딩 2급
+          </h3>
+
+          <p>
+            국민체육진흥공단 · 2022
+          </p>
+        </div>
+
+
+        <div class="card">
+          <h3>
+            BAV · Visual3D 생체역학 분석사
+          </h3>
+
+          <p>
+            벡터 바이오 · 2021
+          </p>
+        </div>
+
+
+        <div class="card">
+          <h3>
+            스포츠영상분석사
+          </h3>
+
+          <p>
+            국민체육진흥공단 · 2018
+          </p>
+        </div>
+
+
+        <div class="card">
+          <h3>
+            생활체육지도사 보디빌딩 2급
+          </h3>
+
+          <p>
+            국민체육진흥공단 · 2016
+          </p>
+        </div>
+
+
+        <div class="card">
+          <h3>
+            스포츠경영관리사
+          </h3>
+
+          <p>
+            한국산업인력공단 · 2014
+          </p>
+        </div>
+
+
+        <div class="card">
+          <h3>
+            워드프로세서 2급
+          </h3>
+
+          <p>
+            대한상공회의소 · 2002
+          </p>
+        </div>
+
+      </div>
+
+
+      <!-- English -->
+
+      <div class="grid en">
+
+        <div class="card">
+          <h3>
+            Senior Sports Instructor,
+            Bodybuilding Level 2
+          </h3>
+
+          <p>
+            Korea Sports Promotion Foundation · 2022
+          </p>
+        </div>
+
+
+        <div class="card">
+          <h3>
+            BAV · Biomechanical Analyst of Visual3D
+          </h3>
+
+          <p>
+            Vector Bio · 2021
+          </p>
+        </div>
+
+
+        <div class="card">
+          <h3>
+            Sports Video Analyst
+          </h3>
+
+          <p>
+            Korea Sports Promotion Foundation · 2018
+          </p>
+        </div>
+
+
+        <div class="card">
+          <h3>
+            Sports Instructor,
+            Bodybuilding Level 2
+          </h3>
+
+          <p>
+            Korea Sports Promotion Foundation · 2016
+          </p>
+        </div>
+
+
+        <div class="card">
+          <h3>
+            Sports Management Specialist
+          </h3>
+
+          <p>
+            HRD Korea · 2014
+          </p>
+        </div>
+
+
+        <div class="card">
+          <h3>
+            Word Processor Level 2
+          </h3>
+
+          <p>
+            Korea Chamber of Commerce and Industry · 2002
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         연락처
+    ========================== -->
+
+    <section id="contact">
+
+      <div class="contact">
+
+        <h2>
+          <span class="ko">
+            연락처
+          </span>
+
+          <span class="en">
+            Contact
+          </span>
+        </h2>
+
+
+        <p class="ko">
+          연구·교육 및 스포츠 생체역학 관련 연락
+        </p>
+
+        <p class="en">
+          For inquiries related to research,
+          education, and sports biomechanics.
+        </p>
+
+
+        <p>
+          <strong>Email</strong>
+          ·
+          <a href="mailto:lysorlys@gmail.com">
+            lysorlys@gmail.com
+          </a>
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       Footer
+  ========================== -->
+
+  <footer>
+
+    ©
+    <span id="year"></span>
+    Lee Yeong Seong.
+    All rights reserved.
+
+  </footer>
+
+
+  <!-- =========================
+       JavaScript
+  ========================== -->
+
+  <script>
+
+    /* 현재 연도 자동 표시 */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    /* 한글 / 영어 전환 */
+
+    const langToggle =
+      document.getElementById("langToggle");
+
+    let currentLang = "ko";
+
+
+    langToggle.addEventListener("click", () => {
+
+      if (currentLang === "ko") {
+
+        currentLang = "en";
+
+        document.body.classList.add("lang-en");
+
+        document.documentElement.lang = "en";
+
+        langToggle.textContent = "한글";
+
+      } else {
+
+        currentLang = "ko";
+
+        document.body.classList.remove("lang-en");
+
+        document.documentElement.lang = "ko";
+
+        langToggle.textContent = "EN";
+
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
